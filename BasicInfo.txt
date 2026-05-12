@@ -1,0 +1,3 @@
+Toto bude jednoduchá hra typu Tower Defense naprogramovaná v engine Godot. Bude mít nějakou pirátskou/námořní tématiku, kde se budeme snažit zabránit průplav lodím pomocí střílen na ostrovech.
+
+Hodina 2: ucili jsme se s Godotem a naprogramovali hybajici hitbox ktery se I despawne, Bruno jeste k tomu zacal kreslit sprity pro hru

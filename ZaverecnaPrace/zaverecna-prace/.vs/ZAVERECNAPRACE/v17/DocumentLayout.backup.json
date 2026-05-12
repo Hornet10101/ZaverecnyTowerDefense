@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Programovani\\cSharp\\GitRepository\\ZaverecnaPrace\\zaverecna-prace\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C94CA64E-4F08-4CD9-9994-EDF71775B6A6}|ZaverecnaPrace.csproj|c:\\programovani\\csharp\\gitrepository\\zaverecnaprace\\zaverecna-prace\\node2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C94CA64E-4F08-4CD9-9994-EDF71775B6A6}|ZaverecnaPrace.csproj|solutionrelative:node2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Node2d.cs",
+              "DocumentMoniker": "C:\\Programovani\\cSharp\\GitRepository\\ZaverecnaPrace\\zaverecna-prace\\Node2d.cs",
+              "RelativeDocumentMoniker": "Node2d.cs",
+              "ToolTip": "C:\\Programovani\\cSharp\\GitRepository\\ZaverecnaPrace\\zaverecna-prace\\Node2d.cs",
+              "RelativeToolTip": "Node2d.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-12T12:42:00.092Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -10,13 +10,14 @@ config_version=5
 
 [application]
 
-config/name="TowerDefense"
-config/features=PackedStringArray("4.6", "Mobile")
+config/name="ZaverecnaPrace"
+run/main_scene="res://node_1.tscn"
+config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="TowerDefense"
+project/assembly_name="ZaverecnaPrace"
 
 [physics]
 

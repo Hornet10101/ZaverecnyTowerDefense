@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bj3h3md4outu8"]
+
+[ext_resource type="Script" uid="uid://dyeea00plfo7q" path="res://Area2d.cs" id="1_gsslv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ebg"]
+size = Vector2(42, 48)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gsslv"]
+
+[node name="Node1" type="Node2D" unique_id=1837413573]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=862015725]
+position = Vector2(106, 23)
+script = ExtResource("1_gsslv")
+
+[node name="CollisionShapeOne2D" type="CollisionShape2D" parent="Area2D" unique_id=496517209]
+shape = SubResource("RectangleShape2D_m7ebg")
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1485564319]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2023565375]
+position = Vector2(347, 28)
+shape = SubResource("CircleShape2D_gsslv")
+
+[connection signal="mouse_entered" from="Area2D" to="Area2D" method="OnMouseEntered"]
