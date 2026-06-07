@@ -1,25 +1,58 @@
 [gd_scene format=3 uid="uid://bj3h3md4outu8"]
 
-[ext_resource type="Script" uid="uid://dyeea00plfo7q" path="res://Area2d.cs" id="1_gsslv"]
+[ext_resource type="Script" uid="uid://cdpuup1tpktn" path="res://Path2d.cs" id="3_07qap"]
+[ext_resource type="Script" uid="uid://bthuogn8wvfpo" path="res://Label.cs" id="5_kg865"]
+[ext_resource type="Script" uid="uid://lvrfdl55nrnt" path="res://Moneh.cs" id="6_7fr0t"]
+[ext_resource type="PackedScene" uid="uid://d0osr8n3vbpnx" path="res://Tower.tscn" id="6_07qap"]
+[ext_resource type="Script" uid="uid://cgbd06al6mnno" path="res://EnemySpawner.cs" id="7_7fr0t"]
+[ext_resource type="PackedScene" uid="uid://3jdkkcxmfu6o" path="res://enemy_1.tscn" id="8_jo2bd"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ebg"]
-size = Vector2(42, 48)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gsslv"]
+[sub_resource type="Curve2D" id="Curve2D_fygpe"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 28, 37, 0, 0, 0, 0, 152, 135, 0, 0, 0, 0, 244, 80, 0, 0, 0, 0, 272, 62, 0, 0, 0, 0, 294, 60, 0, 0, 0, 0, 310, 62, 0, 0, 0, 0, 325, 71, 0, 0, 0, 0, 336, 94, 0, 0, 0, 0, 334, 115, 0, 0, 0, 0, 323, 140, 0, 0, 0, 0, 190, 339, 0, 0, 0, 0, 327, 326, 0, 0, 0, 0, 417, 301, 0, 0, 0, 0, 462, 265, 0, 0, 0, 0, 422, 207, 0, 0, 0, 0, 470, 144, 0, 0, 0, 0, 773, 134)
+}
+point_count = 17
 
 [node name="Node1" type="Node2D" unique_id=1837413573]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=862015725]
-position = Vector2(106, 23)
-script = ExtResource("1_gsslv")
+[node name="EnemyPath" type="Path2D" parent="." unique_id=897906162]
+curve = SubResource("Curve2D_fygpe")
+script = ExtResource("3_07qap")
 
-[node name="CollisionShapeOne2D" type="CollisionShape2D" parent="Area2D" unique_id=496517209]
-shape = SubResource("RectangleShape2D_m7ebg")
+[node name="Lives" type="Label" parent="." unique_id=1383989631]
+offset_left = 622.0
+offset_top = 283.0
+offset_right = 716.0
+offset_bottom = 318.0
+script = ExtResource("5_kg865")
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=1485564319]
+[node name="EnemySpawner" type="Node2D" parent="." unique_id=606372791 node_paths=PackedStringArray("EnemyPath")]
+visible = false
+script = ExtResource("7_7fr0t")
+EnemyScene = ExtResource("8_jo2bd")
+EnemyPath = NodePath("../EnemyPath")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2" unique_id=2023565375]
-position = Vector2(347, 28)
-shape = SubResource("CircleShape2D_gsslv")
+[node name="Towerspot" parent="." unique_id=522817616 instance=ExtResource("6_07qap")]
+position = Vector2(611, 509)
 
-[connection signal="mouse_entered" from="Area2D" to="Area2D" method="OnMouseEntered"]
+[node name="Towerspot2" parent="." unique_id=1629255480 instance=ExtResource("6_07qap")]
+position = Vector2(122, 182)
+
+[node name="Towerspot3" parent="." unique_id=918359326 instance=ExtResource("6_07qap")]
+position = Vector2(271, 301)
+
+[node name="Towerspot4" parent="." unique_id=563833511 instance=ExtResource("6_07qap")]
+position = Vector2(405, 137)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1287647898]
+points = PackedVector2Array(25, 36, 154, 136, 292, 59, 333, 76, 330, 123, 191, 336, 392, 314, 467, 263, 428, 204, 478, 143, 776, 134)
+
+[node name="Moneh" type="Label" parent="." unique_id=1345157346]
+offset_left = 992.0
+offset_top = 2.0
+offset_right = 1150.0
+offset_bottom = 56.0
+text = "Coins:"
+script = ExtResource("6_7fr0t")
+
+[connection signal="FinishLine" from="EnemySpawner" to="Lives" method="OnEnemySpawnerFinishLine"]

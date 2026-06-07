@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://d0osr8n3vbpnx"]
+
+[ext_resource type="Script" uid="uid://cwh5lnuqvrske" path="res://Towerspot.cs" id="1_0ule7"]
+[ext_resource type="Script" uid="uid://c2vdq2edjwpdw" path="res://TowerSprite1.cs" id="2_uxamf"]
+[ext_resource type="Texture2D" uid="uid://1w66yj8sb0hp" path="res://Cannon2.jpg" id="3_qltw4"]
+[ext_resource type="Script" uid="uid://otcjv5ambnms" path="res://TowerSprite2.cs" id="4_sqkc8"]
+[ext_resource type="Script" uid="uid://bkntaww50kbdd" path="res://BoxContainer.cs" id="5_752je"]
+[ext_resource type="Script" uid="uid://cgqh6yxl8aus3" path="res://TowerHitbox.cs" id="5_uxamf"]
+[ext_resource type="Script" uid="uid://dgk23vgyahclh" path="res://Line2d.cs" id="6_djx0s"]
+[ext_resource type="Script" uid="uid://cv1vi5hqemtyp" path="res://Button.cs" id="8_abn5a"]
+[ext_resource type="Script" uid="uid://cad3myd2ig5u5" path="res://BoxContainer2.cs" id="8_qltw4"]
+[ext_resource type="Script" uid="uid://b1tg6pm6gbf75" path="res://TowerDesc.cs" id="8_sqkc8"]
+[ext_resource type="Script" uid="uid://bh0t78jcuk678" path="res://Button2.cs" id="9_djx0s"]
+[ext_resource type="Script" uid="uid://drbsobq6nsfq2" path="res://UpgradedHitbox.cs" id="10_752je"]
+[ext_resource type="Script" uid="uid://bg7a7ce0elwx2" path="res://Upgrade.cs" id="12_cdhmb"]
+[ext_resource type="Script" uid="uid://fnmo06c03iyw" path="res://UpgrSell.cs" id="12_oadqw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f6lkk"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f6lkk"]
+resource_local_to_scene = true
+radius = 115.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0ule7"]
+radius = 20.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_djx0s"]
+resource_local_to_scene = true
+radius = 130.0
+
+[node name="Towerspot" type="Area2D" unique_id=522817616]
+script = ExtResource("1_0ule7")
+
+[node name="TowerSprite1" type="Sprite2D" parent="." unique_id=68374792]
+visible = false
+position = Vector2(0.49999332, -2.861023e-06)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("CompressedTexture2D_f6lkk")
+script = ExtResource("2_uxamf")
+
+[node name="TowerSprite2" type="Sprite2D" parent="." unique_id=492293908]
+visible = false
+position = Vector2(1, 1.0000038)
+scale = Vector2(0.2754386, 0.33050847)
+texture = ExtResource("3_qltw4")
+script = ExtResource("4_sqkc8")
+
+[node name="TowerHitbox" type="CollisionShape2D" parent="." unique_id=11670556]
+visible = false
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_f6lkk")
+debug_color = Color(0.31172937, 0.5830139, 0.6373231, 0.41960785)
+script = ExtResource("5_uxamf")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1725212080]
+position = Vector2(-40, -18)
+points = PackedVector2Array(41, 19, 41, 19)
+width = 5.0
+default_color = Color(1, 0, 0, 1)
+script = ExtResource("6_djx0s")
+
+[node name="CoreArea" type="Area2D" parent="." unique_id=1404266726]
+
+[node name="CoreAreaHitbox" type="CollisionShape2D" parent="CoreArea" unique_id=735830409]
+visibility_layer = 2
+shape = SubResource("CircleShape2D_0ule7")
+
+[node name="BoxContainer" type="BoxContainer" parent="CoreArea" unique_id=1341654861]
+offset_left = 24.0
+offset_top = -66.0
+offset_right = 213.0
+offset_bottom = 6.0
+script = ExtResource("5_752je")
+
+[node name="Button" type="Button" parent="CoreArea/BoxContainer" unique_id=1937704508]
+layout_mode = 2
+text = "Tower1"
+script = ExtResource("8_abn5a")
+
+[node name="TowerDesc" type="Label" parent="CoreArea/BoxContainer/Button" unique_id=579603282]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.33900002
+anchor_top = 0.878
+anchor_right = -0.33900002
+anchor_bottom = 0.878
+offset_left = 21.374
+offset_top = 12.783997
+offset_right = 230.374
+offset_bottom = 87.784
+script = ExtResource("8_sqkc8")
+
+[node name="Button2" type="Button" parent="CoreArea/BoxContainer" unique_id=1234885443]
+layout_mode = 2
+text = "Tower2"
+script = ExtResource("9_djx0s")
+
+[node name="Button3" type="Button" parent="CoreArea/BoxContainer" unique_id=1167116736]
+visible = false
+layout_mode = 2
+text = "Tower3"
+
+[node name="BoxContainer2" type="BoxContainer" parent="CoreArea" unique_id=1556353403]
+offset_left = 25.0
+offset_top = 16.0
+offset_right = 90.0
+offset_bottom = 67.0
+script = ExtResource("8_qltw4")
+
+[node name="Upgrade" type="Button" parent="CoreArea/BoxContainer2" unique_id=480637346]
+layout_mode = 2
+text = "Upgrade"
+script = ExtResource("12_cdhmb")
+
+[node name="UpgrSell" type="Label" parent="CoreArea/BoxContainer2/Upgrade" unique_id=226411833]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -101.0
+offset_right = 227.0
+offset_bottom = 5.0
+script = ExtResource("12_oadqw")
+
+[node name="Sell" type="Button" parent="CoreArea/BoxContainer2" unique_id=892334158]
+layout_mode = 2
+text = "Sell"
+
+[node name="UpgradeGraphic" type="Area2D" parent="." unique_id=2102582566]
+
+[node name="UpgradedHitbox" type="CollisionShape2D" parent="UpgradeGraphic" unique_id=1782174240]
+visible = false
+shape = SubResource("CircleShape2D_djx0s")
+debug_color = Color(0.35057813, 0.5739638, 0.6452596, 0.41960785)
+script = ExtResource("10_752je")
+
+[connection signal="LineCoord" from="." to="Line2D" method="OnHit"]
+[connection signal="Sold" from="." to="TowerSprite1" method="OnTowerSold"]
+[connection signal="Sold" from="." to="TowerSprite2" method="OnTowerSold"]
+[connection signal="Tower1Chosen" from="." to="TowerSprite1" method="OnTower1Chosen"]
+[connection signal="Tower2Chosen" from="." to="TowerSprite2" method="OnTower2Chosen"]
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]
+[connection signal="area_exited" from="." to="." method="OnAreaExited"]
+[connection signal="mouse_entered" from="." to="CoreArea/BoxContainer" method="OnTowerspotMouseEntered"]
+[connection signal="input_event" from="CoreArea" to="CoreArea/BoxContainer" method="HandleInputEvent"]
+[connection signal="mouse_entered" from="CoreArea" to="TowerHitbox" method="OnCoreAreaMouseEntered"]
+[connection signal="mouse_exited" from="CoreArea" to="TowerHitbox" method="OnCoreAreaMouseExited"]
+[connection signal="TowerChosen" from="CoreArea/BoxContainer" to="CoreArea/BoxContainer2" method="ShowYourself"]
+[connection signal="mouse_entered" from="CoreArea/BoxContainer/Button" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnButton1MouseEntered"]
+[connection signal="mouse_exited" from="CoreArea/BoxContainer/Button" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnMouseExited"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button" to="." method="OnButton1Pressed"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button" to="CoreArea/BoxContainer" method="OnButtonClicked"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button" to="CoreArea/BoxContainer2/Upgrade" method="OnButton1Pressed"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton1Pressed"]
+[connection signal="mouse_entered" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnButton2MouseEntered"]
+[connection signal="mouse_exited" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnMouseExited"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button2" to="." method="OnButton2Pressed"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer" method="OnButtonClicked"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer2/Upgrade" method="OnButton2Pressed"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton2Pressed"]
+[connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="TowerHitbox" method="OnCoreAreaMouseEntered"]
+[connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="UpgradeGraphic/UpgradedHitbox" method="OnMouseEntered"]
+[connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton1MouseEntered"]
+[connection signal="mouse_exited" from="CoreArea/BoxContainer2/Upgrade" to="TowerHitbox" method="OnCoreAreaMouseExited"]
+[connection signal="mouse_exited" from="CoreArea/BoxContainer2/Upgrade" to="UpgradeGraphic/UpgradedHitbox" method="OnMouseExited"]
+[connection signal="mouse_exited" from="CoreArea/BoxContainer2/Upgrade" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnMouseExited"]
+[connection signal="pressed" from="CoreArea/BoxContainer2/Upgrade" to="." method="OnUpgrade"]
+[connection signal="pressed" from="CoreArea/BoxContainer2/Upgrade" to="TowerHitbox" method="OnUpgrade"]
+[connection signal="pressed" from="CoreArea/BoxContainer2/Upgrade" to="CoreArea/BoxContainer2" method="OnButtonClicked"]
+[connection signal="pressed" from="CoreArea/BoxContainer2/Upgrade" to="UpgradeGraphic/UpgradedHitbox" method="OnUpgrade"]
+[connection signal="mouse_entered" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton2MouseEntered"]
+[connection signal="mouse_exited" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnMouseExited"]
+[connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="." method="OnSold"]
+[connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer" method="OnSold"]
+[connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer2" method="OnButtonClicked"]
