@@ -47,7 +47,6 @@ texture = ExtResource("3_qltw4")
 script = ExtResource("4_sqkc8")
 
 [node name="TowerHitbox" type="CollisionShape2D" parent="." unique_id=11670556]
-visible = false
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_f6lkk")
 debug_color = Color(0.31172937, 0.5830139, 0.6373231, 0.41960785)
@@ -158,11 +157,11 @@ script = ExtResource("10_752je")
 [connection signal="pressed" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer2/Upgrade" method="OnButton2Pressed"]
 [connection signal="pressed" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton2Pressed"]
 [connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="TowerHitbox" method="OnCoreAreaMouseEntered"]
-[connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="UpgradeGraphic/UpgradedHitbox" method="OnMouseEntered"]
 [connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton1MouseEntered"]
+[connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="UpgradeGraphic/UpgradedHitbox" method="OnMouseEntered"]
 [connection signal="mouse_exited" from="CoreArea/BoxContainer2/Upgrade" to="TowerHitbox" method="OnCoreAreaMouseExited"]
-[connection signal="mouse_exited" from="CoreArea/BoxContainer2/Upgrade" to="UpgradeGraphic/UpgradedHitbox" method="OnMouseExited"]
 [connection signal="mouse_exited" from="CoreArea/BoxContainer2/Upgrade" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnMouseExited"]
+[connection signal="mouse_exited" from="CoreArea/BoxContainer2/Upgrade" to="UpgradeGraphic/UpgradedHitbox" method="OnMouseExited"]
 [connection signal="pressed" from="CoreArea/BoxContainer2/Upgrade" to="." method="OnUpgrade"]
 [connection signal="pressed" from="CoreArea/BoxContainer2/Upgrade" to="TowerHitbox" method="OnUpgrade"]
 [connection signal="pressed" from="CoreArea/BoxContainer2/Upgrade" to="CoreArea/BoxContainer2" method="OnButtonClicked"]

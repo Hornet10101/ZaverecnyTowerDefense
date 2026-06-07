@@ -5,21 +5,24 @@
 [ext_resource type="Script" uid="uid://lvrfdl55nrnt" path="res://Moneh.cs" id="6_7fr0t"]
 [ext_resource type="PackedScene" uid="uid://d0osr8n3vbpnx" path="res://Tower.tscn" id="6_07qap"]
 [ext_resource type="Script" uid="uid://cgbd06al6mnno" path="res://EnemySpawner.cs" id="7_7fr0t"]
+[ext_resource type="Texture2D" uid="uid://cfjbyghd56k0m" path="res://Lv0.png" id="7_jo2bd"]
 [ext_resource type="PackedScene" uid="uid://3jdkkcxmfu6o" path="res://enemy_1.tscn" id="8_jo2bd"]
 
 [sub_resource type="Curve2D" id="Curve2D_fygpe"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 28, 37, 0, 0, 0, 0, 152, 135, 0, 0, 0, 0, 244, 80, 0, 0, 0, 0, 272, 62, 0, 0, 0, 0, 294, 60, 0, 0, 0, 0, 310, 62, 0, 0, 0, 0, 325, 71, 0, 0, 0, 0, 336, 94, 0, 0, 0, 0, 334, 115, 0, 0, 0, 0, 323, 140, 0, 0, 0, 0, 190, 339, 0, 0, 0, 0, 327, 326, 0, 0, 0, 0, 417, 301, 0, 0, 0, 0, 462, 265, 0, 0, 0, 0, 422, 207, 0, 0, 0, 0, 470, 144, 0, 0, 0, 0, 773, 134)
+"points": PackedVector2Array(0, 0, 0, 0, 18, 746, 0, 0, 0, 0, 1097, 272, 0, 0, 0, 0, 1166, 275, 0, 0, 0, 0, 1237, 292, 0, 0, 0, 0, 1281, 325, 0, 0, 0, 0, 1288, 384, 0, 0, 0, 0, 1286, 451, 0, 0, 0, 0, 1212, 497, 0, 0, 0, 0, 941, 594, 0, 0, 0, 0, 891, 656, 0, 0, 0, 0, 881, 734, 0, 0, 0, 0, 924, 795, 0, 0, 0, 0, 1006, 832, 0, 0, 0, 0, 1165, 790, 0, 0, 0, 0, 1285, 754, 0, 0, 0, 0, 1413, 781, 0, 0, 0, 0, 1521, 807)
 }
 point_count = 17
 
 [node name="Node1" type="Node2D" unique_id=1837413573]
 
 [node name="EnemyPath" type="Path2D" parent="." unique_id=897906162]
+z_index = 2
 curve = SubResource("Curve2D_fygpe")
 script = ExtResource("3_07qap")
 
 [node name="Lives" type="Label" parent="." unique_id=1383989631]
+z_index = 5
 offset_left = 622.0
 offset_top = 283.0
 offset_right = 716.0
@@ -33,26 +36,53 @@ EnemyScene = ExtResource("8_jo2bd")
 EnemyPath = NodePath("../EnemyPath")
 
 [node name="Towerspot" parent="." unique_id=522817616 instance=ExtResource("6_07qap")]
-position = Vector2(611, 509)
+z_index = 4
+position = Vector2(467, 485)
 
 [node name="Towerspot2" parent="." unique_id=1629255480 instance=ExtResource("6_07qap")]
-position = Vector2(122, 182)
+z_index = 4
+position = Vector2(219, 592)
 
 [node name="Towerspot3" parent="." unique_id=918359326 instance=ExtResource("6_07qap")]
-position = Vector2(271, 301)
+z_index = 4
+position = Vector2(398, 638)
 
 [node name="Towerspot4" parent="." unique_id=563833511 instance=ExtResource("6_07qap")]
-position = Vector2(405, 137)
-
-[node name="Line2D" type="Line2D" parent="." unique_id=1287647898]
-points = PackedVector2Array(25, 36, 154, 136, 292, 59, 333, 76, 330, 123, 191, 336, 392, 314, 467, 263, 428, 204, 478, 143, 776, 134)
+z_index = 4
+position = Vector2(636, 572)
 
 [node name="Moneh" type="Label" parent="." unique_id=1345157346]
+z_index = 3
 offset_left = 992.0
 offset_top = 2.0
 offset_right = 1150.0
 offset_bottom = 56.0
 text = "Coins:"
 script = ExtResource("6_7fr0t")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=572803267]
+offset_top = 25.0
+offset_right = 1905.0
+offset_bottom = 1091.0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer" unique_id=1814938074]
+layout_mode = 2
+texture = ExtResource("7_jo2bd")
+expand_mode = 2
+
+[node name="Towerspot5" parent="." unique_id=87690635 instance=ExtResource("6_07qap")]
+position = Vector2(648, 401)
+
+[node name="Towerspot6" parent="." unique_id=941311355 instance=ExtResource("6_07qap")]
+position = Vector2(824, 470)
+
+[node name="Towerspot7" parent="." unique_id=1542978986 instance=ExtResource("6_07qap")]
+position = Vector2(849, 316)
+
+[node name="Towerspot8" parent="." unique_id=1834063885 instance=ExtResource("6_07qap")]
+position = Vector2(1200, 377)
+
+[node name="Towerspot9" parent="." unique_id=597976305 instance=ExtResource("6_07qap")]
+position = Vector2(972, 701)
 
 [connection signal="FinishLine" from="EnemySpawner" to="Lives" method="OnEnemySpawnerFinishLine"]

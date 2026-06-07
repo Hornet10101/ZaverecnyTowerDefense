@@ -10,20 +10,20 @@ config_version=5
 
 [application]
 
-<<<<<<< HEAD:ZaverecnaPrace/zaverecna-prace/project.godot
-config/name="ZaverecnaPrace"
-run/main_scene="res://node_1.tscn"
-config/features=PackedStringArray("4.6", "C#", "Mobile")
-=======
 config/name="TowerDefense"
-run/main_scene="uid://cmjnhkpnq3l66"
-config/features=PackedStringArray("4.6", "Mobile")
->>>>>>> 4b8d3a1 (Přidání placeholder textur):tower-defense/project.godot
-config/icon="res://icon.svg"
+run/main_scene="uid://bj3h3md4outu8"
+config/features=PackedStringArray("4.6", "C#", "Mobile")
+<<<<<<<HEAD:ZaverecnaPrace/zaverecna-prace/project.godotconfig/name="ZaverecnaPrace"
+">>>>>>>4b8d3a1(PÅidÃ¡nÃ­placeholdertextur):tower-defense/project.godotconfig/icon"="res://icon.svg"
 
 [autoload]
 
 MoneyManager="*uid://ve1snrwghsy"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 
 [dotnet]
 
