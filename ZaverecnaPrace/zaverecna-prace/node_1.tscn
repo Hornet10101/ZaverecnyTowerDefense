@@ -51,11 +51,9 @@ EnemyScene = ExtResource("8_jo2bd")
 EnemyPath = NodePath("../EnemyPath")
 
 [node name="Towerspot3" parent="." unique_id=918359326 instance=ExtResource("6_07qap")]
-z_index = 4
 position = Vector2(412, 662)
 
 [node name="Towerspot4" parent="." unique_id=563833511 instance=ExtResource("6_07qap")]
-z_index = 4
 position = Vector2(636, 572)
 
 [node name="Moneh" type="Label" parent="." unique_id=1345157346]
@@ -100,11 +98,9 @@ texture = ExtResource("7_jo2bd")
 expand_mode = 2
 
 [node name="Towerspot" parent="." unique_id=522817616 instance=ExtResource("6_07qap")]
-z_index = 4
 position = Vector2(467, 485)
 
 [node name="Towerspot2" parent="." unique_id=1629255480 instance=ExtResource("6_07qap")]
-z_index = 4
 position = Vector2(219, 592)
 
 [node name="Towerspot10" parent="." unique_id=2068261971 instance=ExtResource("6_07qap")]
@@ -133,7 +129,6 @@ position = Vector2(931, 523)
 
 [node name="Towerspot18" parent="." unique_id=1551003739 instance=ExtResource("6_07qap")]
 position = Vector2(910, 913)
-<<<<<<< Updated upstream
 
 [node name="GameOver" type="Panel" parent="." unique_id=1959121898]
 z_index = 10
@@ -162,5 +157,3 @@ text = "RETRY"
 [connection signal="GameOver" from="Lives" to="GameOver" method="OnGameOver"]
 [connection signal="FinishLine" from="EnemySpawner" to="Lives" method="OnEnemySpawnerFinishLine"]
 [connection signal="pressed" from="GameOver/Reset" to="GameOver" method="OnResetPressed"]
-=======
->>>>>>> Stashed changes

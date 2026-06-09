@@ -195,6 +195,7 @@ resource_local_to_scene = true
 radius = 130.0
 
 [node name="Towerspot" type="Area2D" unique_id=522817616]
+z_index = 4
 script = ExtResource("1_0ule7")
 
 [node name="TowerSprite1" type="AnimatedSprite2D" parent="." unique_id=585364439]
@@ -235,6 +236,7 @@ default_color = Color(1, 0, 0, 1)
 script = ExtResource("6_djx0s")
 
 [node name="CoreArea" type="Area2D" parent="." unique_id=1404266726]
+priority = 5
 
 [node name="CoreAreaHitbox" type="CollisionShape2D" parent="CoreArea" unique_id=735830409]
 z_index = 5
@@ -301,6 +303,7 @@ layout_mode = 2
 text = "Sell"
 
 [node name="UpgradeGraphic" type="Area2D" parent="." unique_id=2102582566]
+visible = false
 
 [node name="UpgradedHitbox" type="CollisionShape2D" parent="UpgradeGraphic" unique_id=1782174240]
 visible = false
@@ -308,6 +311,10 @@ shape = SubResource("CircleShape2D_djx0s")
 debug_color = Color(0.35057813, 0.5739638, 0.6452596, 0.41960785)
 script = ExtResource("10_752je")
 
+[connection signal="Tower1Chosen" from="." to="TowerSprite1" method="OnTower1Chosen"]
+[connection signal="Tower1Chosen" from="." to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton1Pressed"]
+[connection signal="Tower2Chosen" from="." to="TowerSprite2" method="OnTower2Chosen"]
+[connection signal="Tower3Chosen" from="." to="TowerSprite3" method="OnTower3Chosen"]
 [connection signal="area_entered" from="." to="." method="OnAreaEntered"]
 [connection signal="area_exited" from="." to="." method="OnAreaExited"]
 [connection signal="mouse_entered" from="." to="CoreArea/BoxContainer" method="OnTowerspotMouseEntered"]
@@ -329,10 +336,10 @@ script = ExtResource("10_752je")
 [connection signal="mouse_entered" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnButton3MouseEntered"]
 [connection signal="mouse_exited" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnMouseExited"]
 [connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="." method="OnButton3Pressed"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="TowerSprite3" method="OnTower3Chosen"]
 [connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer" method="OnButtonClicked"]
 [connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer2/Upgrade" method="OnButton3Pressed"]
 [connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton3Pressed"]
-[connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="TowerSprite3" method="OnTower3Chosen"]
 [connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="TowerHitbox" method="OnCoreAreaMouseEntered"]
 [connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton1MouseEntered"]
 [connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="UpgradeGraphic/UpgradedHitbox" method="OnMouseEntered"]
@@ -346,6 +353,6 @@ script = ExtResource("10_752je")
 [connection signal="mouse_entered" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton2MouseEntered"]
 [connection signal="mouse_exited" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnMouseExited"]
 [connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="." method="OnSold"]
+[connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="TowerSprite3" method="OnTowerSold"]
 [connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer" method="OnSold"]
 [connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer2" method="OnButtonClicked"]
-[connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="TowerSprite3" method="OnTowerSold"]
