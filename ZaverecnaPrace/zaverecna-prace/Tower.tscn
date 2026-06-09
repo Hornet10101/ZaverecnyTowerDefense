@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://d0osr8n3vbpnx"]
 
 [ext_resource type="Script" uid="uid://cwh5lnuqvrske" path="res://Towerspot.cs" id="1_0ule7"]
+[ext_resource type="Texture2D" uid="uid://g7j87cf4mdrc" path="res://Tower_1.png" id="2_2es8u"]
 [ext_resource type="Script" uid="uid://c2vdq2edjwpdw" path="res://TowerSprite1.cs" id="2_uxamf"]
-[ext_resource type="Texture2D" uid="uid://1w66yj8sb0hp" path="res://Cannon2.jpg" id="3_qltw4"]
 [ext_resource type="Script" uid="uid://otcjv5ambnms" path="res://TowerSprite2.cs" id="4_sqkc8"]
+[ext_resource type="Texture2D" uid="uid://yfdsbmpoxsie" path="res://tower_2.png" id="4_ygasj"]
 [ext_resource type="Script" uid="uid://bkntaww50kbdd" path="res://BoxContainer.cs" id="5_752je"]
-[ext_resource type="Texture2D" uid="uid://dxhqro865l8g" path="res://ice.webp" id="5_ntecg"]
 [ext_resource type="Script" uid="uid://cgqh6yxl8aus3" path="res://TowerHitbox.cs" id="5_uxamf"]
 [ext_resource type="Script" uid="uid://b3f7n15k0wudg" path="res://TowerSprite3.cs" id="6_cp8l4"]
 [ext_resource type="Script" uid="uid://dgk23vgyahclh" path="res://Line2d.cs" id="6_djx0s"]
@@ -18,8 +18,170 @@
 [ext_resource type="Script" uid="uid://fnmo06c03iyw" path="res://UpgrSell.cs" id="12_oadqw"]
 [ext_resource type="Script" uid="uid://cxo02m82rt60j" path="res://Button3.cs" id="13_ygasj"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f6lkk"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+[sub_resource type="AtlasTexture" id="AtlasTexture_2es8u"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(2, 809, 707, 781)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4jvl5"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(709, 809, 707, 781)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4l7v"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(1416, 809, 707, 781)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyed3"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(2, 28, 707, 781)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asyr5"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(709, 28, 707, 781)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_majht"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(1416, 28, 707, 781)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpby7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2es8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4jvl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4l7v")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyed3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asyr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_majht")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpby7"]
+atlas = ExtResource("4_ygasj")
+region = Rect2(0, 890, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ydxk"]
+atlas = ExtResource("4_ygasj")
+region = Rect2(822, 890, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijc8l"]
+atlas = ExtResource("4_ygasj")
+region = Rect2(1644, 890, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh6t2"]
+atlas = ExtResource("4_ygasj")
+region = Rect2(0, 0, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg0cj"]
+atlas = ExtResource("4_ygasj")
+region = Rect2(822, 0, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5be7"]
+atlas = ExtResource("4_ygasj")
+region = Rect2(1644, 0, 822, 890)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cp8l4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpby7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ydxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijc8l")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh6t2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg0cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5be7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygasj"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(0, 890, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xgou"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(822, 890, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8uxe"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(1644, 890, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwx36"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(0, 0, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_133n7"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(822, 0, 822, 890)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_huhvr"]
+atlas = ExtResource("2_2es8u")
+region = Rect2(1644, 0, 822, 890)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_72air"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygasj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xgou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8uxe")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwx36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_133n7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_huhvr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6lkk"]
 resource_local_to_scene = true
@@ -35,25 +197,27 @@ radius = 130.0
 [node name="Towerspot" type="Area2D" unique_id=522817616]
 script = ExtResource("1_0ule7")
 
-[node name="TowerSprite1" type="Sprite2D" parent="." unique_id=68374792]
+[node name="TowerSprite1" type="AnimatedSprite2D" parent="." unique_id=585364439]
 visible = false
 position = Vector2(0.49999332, -2.861023e-06)
 scale = Vector2(0.4, 0.4)
-texture = SubResource("CompressedTexture2D_f6lkk")
+sprite_frames = SubResource("SpriteFrames_mpby7")
+autoplay = "default"
 script = ExtResource("2_uxamf")
 
-[node name="TowerSprite2" type="Sprite2D" parent="." unique_id=492293908]
+[node name="TowerSprite2" type="AnimatedSprite2D" parent="." unique_id=226307391]
 visible = false
 position = Vector2(1, 1.0000038)
 scale = Vector2(0.2754386, 0.33050847)
-texture = ExtResource("3_qltw4")
+sprite_frames = SubResource("SpriteFrames_cp8l4")
+animation = &"attack"
 script = ExtResource("4_sqkc8")
 
-[node name="TowerSprite3" type="Sprite2D" parent="." unique_id=1826309786]
+[node name="TowerSprite3" type="AnimatedSprite2D" parent="." unique_id=583833658]
 visible = false
 position = Vector2(0.49999905, 1.66893e-06)
 scale = Vector2(0.13867189, 0.1171875)
-texture = ExtResource("5_ntecg")
+sprite_frames = SubResource("SpriteFrames_72air")
 script = ExtResource("6_cp8l4")
 
 [node name="TowerHitbox" type="CollisionShape2D" parent="." unique_id=11670556]
@@ -144,18 +308,12 @@ shape = SubResource("CircleShape2D_djx0s")
 debug_color = Color(0.35057813, 0.5739638, 0.6452596, 0.41960785)
 script = ExtResource("10_752je")
 
-[connection signal="LineCoord" from="." to="Line2D" method="OnHit"]
-[connection signal="Sold" from="." to="TowerSprite1" method="OnTowerSold"]
-[connection signal="Sold" from="." to="TowerSprite2" method="OnTowerSold"]
-[connection signal="Tower1Chosen" from="." to="TowerSprite1" method="OnTower1Chosen"]
-[connection signal="Tower2Chosen" from="." to="TowerSprite2" method="OnTower2Chosen"]
 [connection signal="area_entered" from="." to="." method="OnAreaEntered"]
 [connection signal="area_exited" from="." to="." method="OnAreaExited"]
 [connection signal="mouse_entered" from="." to="CoreArea/BoxContainer" method="OnTowerspotMouseEntered"]
 [connection signal="input_event" from="CoreArea" to="CoreArea/BoxContainer" method="HandleInputEvent"]
 [connection signal="mouse_entered" from="CoreArea" to="TowerHitbox" method="OnCoreAreaMouseEntered"]
 [connection signal="mouse_exited" from="CoreArea" to="TowerHitbox" method="OnCoreAreaMouseExited"]
-[connection signal="TowerChosen" from="CoreArea/BoxContainer" to="CoreArea/BoxContainer2" method="ShowYourself"]
 [connection signal="mouse_entered" from="CoreArea/BoxContainer/Button" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnButton1MouseEntered"]
 [connection signal="mouse_exited" from="CoreArea/BoxContainer/Button" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnMouseExited"]
 [connection signal="pressed" from="CoreArea/BoxContainer/Button" to="." method="OnButton1Pressed"]

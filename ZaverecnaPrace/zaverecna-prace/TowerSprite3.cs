@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class TowerSprite3 : Sprite2D
+public partial class TowerSprite3 : AnimatedSprite2D
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -13,12 +13,12 @@ public partial class TowerSprite3 : Sprite2D
 	public override void _Process(double delta)
 	{
 	}
-    public void OnTower3Chosen()
-    {
-        Visible = true;
-    }
-    private void OnTowerSold()
-    {
-        Visible = false;
-    }
+	public void OnTower3Chosen()
+	{
+		Visible = true;
+	}
+	private void OnTowerSold()
+	{
+		Visible = false;
+	}
 }

@@ -133,6 +133,7 @@ position = Vector2(931, 523)
 
 [node name="Towerspot18" parent="." unique_id=1551003739 instance=ExtResource("6_07qap")]
 position = Vector2(910, 913)
+<<<<<<< Updated upstream
 
 [node name="GameOver" type="Panel" parent="." unique_id=1959121898]
 z_index = 10
@@ -161,3 +162,5 @@ text = "RETRY"
 [connection signal="GameOver" from="Lives" to="GameOver" method="OnGameOver"]
 [connection signal="FinishLine" from="EnemySpawner" to="Lives" method="OnEnemySpawnerFinishLine"]
 [connection signal="pressed" from="GameOver/Reset" to="GameOver" method="OnResetPressed"]
+=======
+>>>>>>> Stashed changes

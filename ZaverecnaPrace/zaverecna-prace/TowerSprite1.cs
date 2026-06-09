@@ -2,11 +2,11 @@ using Godot;
 using System;
 using System.Xml.Serialization;
 
-public partial class TowerSprite1 : Sprite2D
+public partial class TowerSprite1 : AnimatedSprite2D
 {
-    // Called when the node enters the scene tree for the first time.
-    //private Texture2D img = (Texture2D)GD.Load("res://.godot/imported/Rook.png-5bd3b5bbc319f048769c687e7c839e46.ctex");
-    public override void _Ready()
+	// Called when the node enters the scene tree for the first time.
+	//private Texture2D img = (Texture2D)GD.Load("res://.godot/imported/Rook.png-5bd3b5bbc319f048769c687e7c839e46.ctex");
+	public override void _Ready()
 	{
 		Visible = false;
 	}
@@ -18,7 +18,7 @@ public partial class TowerSprite1 : Sprite2D
 	private void OnTower1Chosen()
 	{
 		Visible = true;
-    }
+	}
 	private void OnTowerSold()
 	{
 		Visible = false;
