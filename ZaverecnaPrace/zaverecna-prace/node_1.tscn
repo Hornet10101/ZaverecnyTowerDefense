@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d0osr8n3vbpnx" path="res://Tower.tscn" id="6_07qap"]
 [ext_resource type="Script" uid="uid://cgbd06al6mnno" path="res://EnemySpawner.cs" id="7_7fr0t"]
 [ext_resource type="Texture2D" uid="uid://cfjbyghd56k0m" path="res://Lv0.png" id="7_jo2bd"]
+[ext_resource type="Script" uid="uid://dou0bqavcasky" path="res://GameOver.cs" id="8_f6lkk"]
 [ext_resource type="PackedScene" uid="uid://3jdkkcxmfu6o" path="res://enemy_1.tscn" id="8_jo2bd"]
 
 [sub_resource type="Curve2D" id="Curve2D_fygpe"]
@@ -19,6 +20,12 @@ font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_jo2bd"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_f6lkk"]
+font_size = 85
+
+[sub_resource type="Theme" id="Theme_6yoji"]
+default_font_size = 50
 
 [node name="Node1" type="Node2D" unique_id=1837413573]
 
@@ -127,4 +134,30 @@ position = Vector2(931, 523)
 [node name="Towerspot18" parent="." unique_id=1551003739 instance=ExtResource("6_07qap")]
 position = Vector2(910, 913)
 
+[node name="GameOver" type="Panel" parent="." unique_id=1959121898]
+z_index = 10
+offset_left = 597.0
+offset_top = 294.0
+offset_right = 1378.0
+offset_bottom = 772.0
+script = ExtResource("8_f6lkk")
+
+[node name="Label" type="Label" parent="GameOver" unique_id=488628861]
+layout_mode = 0
+offset_right = 778.0
+offset_bottom = 236.0
+text = "GAME OVER LOSER"
+label_settings = SubResource("LabelSettings_f6lkk")
+
+[node name="Reset" type="Button" parent="GameOver" unique_id=435919551]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 313.0
+offset_right = 565.0
+offset_bottom = 406.0
+theme = SubResource("Theme_6yoji")
+text = "RETRY"
+
+[connection signal="GameOver" from="Lives" to="GameOver" method="OnGameOver"]
 [connection signal="FinishLine" from="EnemySpawner" to="Lives" method="OnEnemySpawnerFinishLine"]
+[connection signal="pressed" from="GameOver/Reset" to="GameOver" method="OnResetPressed"]

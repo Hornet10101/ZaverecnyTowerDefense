@@ -8,6 +8,8 @@ public partial class Label : Godot.Label
 	private string text = "zivoty: ";
 	private int lives = 10;
 	private string text2 = string.Empty;
+	[Signal]
+	public delegate void GameOverEventHandler();
 	public override void _Ready()
 	{
 	}
@@ -17,6 +19,10 @@ public partial class Label : Godot.Label
 	{
 		text2 = text + lives.ToString();
 		Text = text2;
+		if(lives == 0)
+		{
+			EmitSignal(SignalName.GameOver);
+		}
 	}
 	private void OnEnemySpawnerFinishLine()
 	{
