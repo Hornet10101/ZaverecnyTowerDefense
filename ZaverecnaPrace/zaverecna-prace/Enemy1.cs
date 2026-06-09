@@ -10,13 +10,16 @@ public partial class Enemy1 : PathFollow2D
     [Signal]
     public delegate void DiedEventHandler();
 
-    public override void _Ready()
-	{
-	}
+    [Export]
+    public bool slowed = false;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+    public override void _Ready()
+    {
+    }
+
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
+    {
         Progress += Speed * (float)delta;
         if (ProgressRatio >= 0.99f)
         {
@@ -27,6 +30,7 @@ public partial class Enemy1 : PathFollow2D
     public void OnDeath()
     {
         QueueFree();
-        MoneyManager.Instance.Money += 5;
+        MoneyManager.Instance.Money += 2;
     }
 }
+

@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://1w66yj8sb0hp" path="res://Cannon2.jpg" id="3_qltw4"]
 [ext_resource type="Script" uid="uid://otcjv5ambnms" path="res://TowerSprite2.cs" id="4_sqkc8"]
 [ext_resource type="Script" uid="uid://bkntaww50kbdd" path="res://BoxContainer.cs" id="5_752je"]
+[ext_resource type="Texture2D" uid="uid://dxhqro865l8g" path="res://ice.webp" id="5_ntecg"]
 [ext_resource type="Script" uid="uid://cgqh6yxl8aus3" path="res://TowerHitbox.cs" id="5_uxamf"]
+[ext_resource type="Script" uid="uid://b3f7n15k0wudg" path="res://TowerSprite3.cs" id="6_cp8l4"]
 [ext_resource type="Script" uid="uid://dgk23vgyahclh" path="res://Line2d.cs" id="6_djx0s"]
 [ext_resource type="Script" uid="uid://cv1vi5hqemtyp" path="res://Button.cs" id="8_abn5a"]
 [ext_resource type="Script" uid="uid://cad3myd2ig5u5" path="res://BoxContainer2.cs" id="8_qltw4"]
@@ -14,6 +16,7 @@
 [ext_resource type="Script" uid="uid://drbsobq6nsfq2" path="res://UpgradedHitbox.cs" id="10_752je"]
 [ext_resource type="Script" uid="uid://bg7a7ce0elwx2" path="res://Upgrade.cs" id="12_cdhmb"]
 [ext_resource type="Script" uid="uid://fnmo06c03iyw" path="res://UpgrSell.cs" id="12_oadqw"]
+[ext_resource type="Script" uid="uid://cxo02m82rt60j" path="res://Button3.cs" id="13_ygasj"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f6lkk"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
@@ -46,7 +49,15 @@ scale = Vector2(0.2754386, 0.33050847)
 texture = ExtResource("3_qltw4")
 script = ExtResource("4_sqkc8")
 
+[node name="TowerSprite3" type="Sprite2D" parent="." unique_id=1826309786]
+visible = false
+position = Vector2(0.49999905, 1.66893e-06)
+scale = Vector2(0.13867189, 0.1171875)
+texture = ExtResource("5_ntecg")
+script = ExtResource("6_cp8l4")
+
 [node name="TowerHitbox" type="CollisionShape2D" parent="." unique_id=11670556]
+visible = false
 position = Vector2(1, 1)
 shape = SubResource("CircleShape2D_f6lkk")
 debug_color = Color(0.31172937, 0.5830139, 0.6373231, 0.41960785)
@@ -62,7 +73,7 @@ script = ExtResource("6_djx0s")
 [node name="CoreArea" type="Area2D" parent="." unique_id=1404266726]
 
 [node name="CoreAreaHitbox" type="CollisionShape2D" parent="CoreArea" unique_id=735830409]
-visibility_layer = 2
+z_index = 5
 shape = SubResource("CircleShape2D_0ule7")
 
 [node name="BoxContainer" type="BoxContainer" parent="CoreArea" unique_id=1341654861]
@@ -74,7 +85,8 @@ script = ExtResource("5_752je")
 
 [node name="Button" type="Button" parent="CoreArea/BoxContainer" unique_id=1937704508]
 layout_mode = 2
-text = "Tower1"
+text = "Basic
+Tower"
 script = ExtResource("8_abn5a")
 
 [node name="TowerDesc" type="Label" parent="CoreArea/BoxContainer/Button" unique_id=579603282]
@@ -92,13 +104,13 @@ script = ExtResource("8_sqkc8")
 
 [node name="Button2" type="Button" parent="CoreArea/BoxContainer" unique_id=1234885443]
 layout_mode = 2
-text = "Tower2"
+text = "Cannon"
 script = ExtResource("9_djx0s")
 
 [node name="Button3" type="Button" parent="CoreArea/BoxContainer" unique_id=1167116736]
-visible = false
 layout_mode = 2
-text = "Tower3"
+text = "Ice Tower"
+script = ExtResource("13_ygasj")
 
 [node name="BoxContainer2" type="BoxContainer" parent="CoreArea" unique_id=1556353403]
 offset_left = 25.0
@@ -156,6 +168,13 @@ script = ExtResource("10_752je")
 [connection signal="pressed" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer" method="OnButtonClicked"]
 [connection signal="pressed" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer2/Upgrade" method="OnButton2Pressed"]
 [connection signal="pressed" from="CoreArea/BoxContainer/Button2" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton2Pressed"]
+[connection signal="mouse_entered" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnButton3MouseEntered"]
+[connection signal="mouse_exited" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer/Button/TowerDesc" method="OnMouseExited"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="." method="OnButton3Pressed"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer" method="OnButtonClicked"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer2/Upgrade" method="OnButton3Pressed"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton3Pressed"]
+[connection signal="pressed" from="CoreArea/BoxContainer/Button3" to="TowerSprite3" method="OnTower3Chosen"]
 [connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="TowerHitbox" method="OnCoreAreaMouseEntered"]
 [connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="CoreArea/BoxContainer2/Upgrade/UpgrSell" method="OnButton1MouseEntered"]
 [connection signal="mouse_entered" from="CoreArea/BoxContainer2/Upgrade" to="UpgradeGraphic/UpgradedHitbox" method="OnMouseEntered"]
@@ -171,3 +190,4 @@ script = ExtResource("10_752je")
 [connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="." method="OnSold"]
 [connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer" method="OnSold"]
 [connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="CoreArea/BoxContainer2" method="OnButtonClicked"]
+[connection signal="pressed" from="CoreArea/BoxContainer2/Sell" to="TowerSprite3" method="OnTowerSold"]

@@ -9,7 +9,9 @@ public partial class Towerspot : Area2D
 	public delegate void Tower1ChosenEventHandler();
 	[Signal] 
 	public delegate void Tower2ChosenEventHandler();
-	[Signal]
+    [Signal]
+    public delegate void Tower3ChosenEventHandler();
+    [Signal]
 	public delegate void LineCoordEventHandler(float selfX, float selfY, float targetX, float targetY);
 	[Signal]
 	public delegate void SoldEventHandler();
@@ -17,13 +19,14 @@ public partial class Towerspot : Area2D
     private List<Enemy1> targets = new();
 	private int tower1Cost = 100;
 	private int tower2Cost = 200;
+	private int tower3Cost = 150;
 	private double refund = 0.8;
 	private float tower1Cooldown = 150f;
 	private float tower2Cooldown = 800f;
     private float cooldown = 0;
 
 	private int towerLevel = 0;
-	private int towerType = 0; //0 - tower not built, 1 - regular,
+	public int towerType = 0; //0 - tower not built, 1 - regular,
     public override void _Ready()
 	{
 	}
@@ -36,6 +39,7 @@ public partial class Towerspot : Area2D
 		//GD.Print(targets.Count);
 		if (towerType == 1) { Tower1Shooting(); }
 		if (towerType == 2) { Tower2Shooting(); }
+		if (towerType == 3) { Tower3Shooting(); }
 
 	}
 	private void Tower1Shooting()
@@ -59,7 +63,7 @@ public partial class Towerspot : Area2D
 			var enemies = target.GetParent().GetChildren();
 			foreach(Enemy1 enemy in enemies)
 			{
-				if(Math.Abs(location - enemy.ProgressRatio) < 0.1)
+				if(Math.Abs(location - enemy.ProgressRatio) < 0.03)
 				{
 					enemy.OnDeath();
 					if (targets.Contains(enemy))
@@ -71,6 +75,19 @@ public partial class Towerspot : Area2D
 			cooldown = tower2Cooldown;
         }
 	}
+	private void Tower3Shooting()
+	{
+        foreach(Enemy1 target in targets)
+		{
+			if (!target.slowed)
+			{
+                target.Speed = target.Speed / 2;
+				target.slowed = true;
+            }
+			
+        }
+
+    }
 
     private void OnButton1Pressed()
 	{
@@ -86,6 +103,13 @@ public partial class Towerspot : Area2D
         towerLevel++;
         MoneyManager.Instance.Money -= tower2Cost;
     }
+	private void OnButton3Pressed()
+	{
+        EmitSignal(SignalName.Tower3Chosen);
+        towerType = 3;
+        towerLevel++;
+        MoneyManager.Instance.Money -= tower3Cost;
+    }
 
 	private void OnAreaEntered(Area2D area)
 	{
@@ -98,6 +122,11 @@ public partial class Towerspot : Area2D
 	{
         if (area.GetParent() is Enemy1 enemy)
         {
+			if(towerType == 3)
+			{
+				enemy.Speed = enemy.Speed*2;
+				enemy.slowed = false;
+			}
             targets.Remove(enemy);
         }
     }
@@ -112,7 +141,11 @@ public partial class Towerspot : Area2D
 		{
 			MoneyManager.Instance.Money += tower2Cost * refund;
 		}
-		towerType = 0;
+		else if (towerType == 3)
+		{
+			MoneyManager.Instance.Money += tower3Cost * refund;
+		}
+			towerType = 0;
 		EmitSignal(SignalName.Sold);
         towerLevel = 0;
     }
@@ -128,7 +161,10 @@ public partial class Towerspot : Area2D
 		else if (towerType == 2)
 		{
             MoneyManager.Instance.Money -= tower2Cost;
-        }
+        } else if (towerType == 3)
+		{
+			MoneyManager.Instance.Money -= tower3Cost;
+		}
     }
 
 }

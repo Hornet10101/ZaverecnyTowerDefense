@@ -6,6 +6,7 @@ public partial class TowerDesc : Label
 	// Called when the node enters the scene tree for the first time.
 	private string tower1Desc = "Basic tower.\nCooldown: 1s\nDamage: 1 \nCost: 100C";
 	private string tower2Desc = "Does AoE damage.\nCooldown: 8s\nDamage: 1\nCost: 200C";
+	private string tower3Desc = "Slows enemies down.\nCost: 150C";
 
 
     public override void _Ready()
@@ -24,6 +25,10 @@ public partial class TowerDesc : Label
     {
 		Text = tower2Desc;
     }
+	private void OnButton3MouseEntered()
+	{
+		Text = tower3Desc;
+	}
     private void OnMouseExited()
     {
         Text = "";

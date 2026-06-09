@@ -20,6 +20,10 @@ public partial class Upgrade : Button
         {
             Disabled = true;
         }
+        else if(towerType == 3 && MoneyManager.Instance.Money < 150)
+        {
+            Disabled = true;
+        }
         else
         {
             Disabled = false;
@@ -32,5 +36,9 @@ public partial class Upgrade : Button
     private void OnButton2Pressed()
     {
         towerType = 2;
+    }
+    private void OnButton3Pressed()
+    {
+        towerType = 3;
     }
 }

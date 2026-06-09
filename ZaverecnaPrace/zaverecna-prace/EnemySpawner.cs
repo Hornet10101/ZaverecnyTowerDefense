@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class EnemySpawner : Node2D
 {
@@ -11,6 +12,10 @@ public partial class EnemySpawner : Node2D
     public Path2D EnemyPath;
     [Signal]
     public delegate void FinishLineEventHandler();
+    private List<Enemy1> enemies = new();
+    private int time = 0;
+    public float difficulty = 0f;
+    
     public override void _Ready()
 	{
 	}
@@ -18,7 +23,18 @@ public partial class EnemySpawner : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-        if (GD.Randf() > 0.98)
+        time++;
+        if(time == 1000)
+        {
+            time = 0;
+            difficulty += 0.0005f;
+            foreach (Enemy1 enemy in enemies)
+            {
+                enemy.Speed += 3;
+            }
+            //GD.Print("time");
+        }
+        if (GD.Randf() > 0.995-difficulty)
         {
             SpawnEnemy();
         }
@@ -31,6 +47,8 @@ public partial class EnemySpawner : Node2D
         enemy.Died += OnEnemyDied;
 
         EnemyPath.AddChild(enemy);
+
+        enemies.Add(enemy);
     }
     private void OnEnemyDied()
     {

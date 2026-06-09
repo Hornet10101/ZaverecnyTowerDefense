@@ -7,9 +7,11 @@ public partial class UpgrSell : Label
     // Called when the node enters the scene tree for the first time.
     
     private string UpgradeDesc1 = "Upgrades the tower.\nRange increased by 15 pixels\nCooldown decreased by 0.15s\nCost: 100C";
-    private string UpgradeDesc2 = "Upgrades the tower.\nRange increased by 15 pixels\r\nCooldown decreased by 0.8s\nCost: 200C";
+    private string UpgradeDesc2 = "Upgrades the tower.\nRange increased by 15 pixels\nCooldown decreased by 0.8s\nCost: 200C";
+    private string UpgradeDesc3 = "Upgrades the tower.\nRange increased by 15 pixels\nCost: 150C";
     private string SellDesc1 = "Sells the tower.\nRefund: 80C";
     private string SellDesc2 = "Sells the tower.\nRefund: 160C";
+    private string SellDesc3 = "Sells the tower.\nRefund: 120C";
     private int towerType = 0;
 	public override void _Ready()
 	{
@@ -29,6 +31,10 @@ public partial class UpgrSell : Label
         {
             Text = UpgradeDesc2;
         }
+        else if(towerType == 3)
+        {
+            Text = UpgradeDesc3;
+        }
     }
     private void OnButton2MouseEntered()
     {
@@ -39,6 +45,10 @@ public partial class UpgrSell : Label
         else if (towerType == 2)
         {
             Text = SellDesc2;
+        }
+        else if (towerType == 3)
+        {
+            Text = SellDesc3;
         }
     }
     private void OnMouseExited()
@@ -52,5 +62,9 @@ public partial class UpgrSell : Label
     private void OnButton2Pressed()
     {
         towerType = 2;
+    }
+    private void OnButton3Pressed()
+    {
+        towerType = 3;
     }
 }
